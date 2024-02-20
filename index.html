@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box3 Static Tool</title>
+  </head>
+  <body>
+    <h1>Box3 Static Tool</h1>
+    <div class="menu read">
+      <h2 class="title">通过Hash读取文件</h2>
+      <form id="readHashForm">
+        <p class="labal">Hash: </p>
+        <input type="text" id="readHash"/>
+        <input type="submit" value="获取"/>
+      </form>
+      <p class="tip"></p>
+      <button id="open">在新窗口打开</button>
+      <div class="preview flex-column">
+        <button class="change-preview-vis">显示/隐藏预览</button>
+        <iframe src="" class="frame hidden"></iframe>
+      </div>
+      <button id="download">下载</button>
+      <p>
+        因为搬砖偷懒，接收到的文件类型全都是文本<br/>
+        如果你打开的是一个图片，下面的预览可能会崩溃<br/>
+        正在考虑加入通过文件内容识别文件类型的功能<br/>
+        所以建议从新窗口打开，浏览器会帮你做好一切事情<br/>
+        （明明上传的时候告诉搬砖是什么类型的，他居然不肯记住qwq）
+      </p>
+    </div>
+
+    <div class="menu postText">
+      <h2 class="title">上传文本</h2>
+      <form id="postTextForm">
+        <p class="labal">输入文本: </p>
+        <textarea id="postText"></textarea>
+        <input type="submit" value="上传"/>
+      </form>
+      <p class="tip"></p>
+    </div>
+
+    <div class="menu postFile">
+      <h2 class="title">上传文件</h2>
+      <form id="postFileForm" class="flex-column">
+        <p>点击按钮上传或直接将文件拖拽到下方</p>
+        <input type="file" id="postFile" />
+        <button type="submit">上传</button>
+      </form>
+      <div class="preview flex-column">
+        <button class="change-preview-vis">显示/隐藏预览</button>
+        <iframe src="" class="frame hidden"></iframe>      
+      </div>
+      <p class="tip"></p>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

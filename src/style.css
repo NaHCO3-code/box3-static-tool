@@ -1,0 +1,51 @@
+:root{
+  --main-color: #336699;
+}
+
+.menu > *{
+  margin: 3px;
+}
+
+form *{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+.menu{
+  border: 1px solid var(--main-color);
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+}
+
+#readHashForm{
+  display: flex;
+  align-items: center;
+}
+
+#postTextForm{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#postTextForm textarea{
+  width: 50%;
+  height: 20vh;
+}
+
+.hidden{
+  display: none;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.flex-row{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
