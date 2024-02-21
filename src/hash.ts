@@ -21,7 +21,8 @@ export async function FetchFile(
   url: RequestInfo | URL,
   nameGetter: (url: string, MIME: string) => string, 
   hook: (chunk: Uint8Array) => void, 
-  init: RequestInit | undefined
+  init: RequestInit | undefined,
+  MIME: string | null
 ){
   const res = await fetch(url, init);
   if(!res.ok || res.body === null){
@@ -37,7 +38,7 @@ export async function FetchFile(
     content.push(chunk);
   }
 
-  const type = res.headers.get("Content-Type") ?? "application/octet-stream";
+  const type = MIME ?? res.headers.get("Content-Type") ?? "application/octet-stream";
   const name = nameGetter(url.toString(), type);
   return new File(content, name, {
     type,
@@ -47,7 +48,8 @@ export async function FetchFile(
 
 export async function getFileByHash(
   hash: string, 
-  hook:(chunk: Uint8Array) => void=(()=>{})
+  hook:(chunk: Uint8Array) => void=(()=>{}),
+  MIME: string | null
 ){
   return FetchFile(
     `//static.dao3.fun/block/${hash}`,
@@ -55,7 +57,8 @@ export async function getFileByHash(
     hook,
     {
       mode: "cors",
-    }
+    },
+    MIME
   )
 }
 
